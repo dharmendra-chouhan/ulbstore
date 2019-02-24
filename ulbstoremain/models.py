@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import Textarea
 from django.utils import timezone
 import datetime
 
@@ -53,15 +54,15 @@ class Supplier(models.Model):
         ('A','Active'),
         ('I','Inactvie')
     )
-    suppliercode = models.CharField(max_length = 10)
-    suppliername = models.CharField(max_length = 200, blank=True, null=True)
-    supplieraddress = models.CharField(max_length = 500, blank=True, null=True)
-    suppliertelephone = models.CharField(max_length = 15, blank=True, null=True)
-    suppliermobileno = models.CharField(max_length = 10, blank=True, null=True)
-    supplieremailid = models.CharField(max_length = 100, blank=True, null=True)
-    vatno = models.CharField(max_length = 25, blank=True, null=True)
-    cstno = models.CharField(max_length = 25, blank=True, null=True)
-    tinno = models.CharField(max_length = 25, blank=True, null=True)
+    suppliercode = models.CharField(max_length = 10, verbose_name ='Supplier Code')
+    suppliername = models.CharField(max_length = 200, blank=True, null=True, verbose_name ='Suplier Name')
+    supplieraddress = models.TextField(verbose_name ='Suplier Address')
+    suppliertelephone = models.CharField(max_length = 15, blank=True, null=True, verbose_name ='Suplier Telephone')
+    suppliermobileno = models.CharField(max_length = 10, blank=True, null=True, verbose_name ='Mobile Number')
+    supplieremailid = models.EmailField(max_length = 100, blank=True, null=True, verbose_name ='e-mail')
+    vatno = models.CharField(max_length = 25, blank=True, null=True, verbose_name ='VAT No')
+    cstno = models.CharField(max_length = 25, blank=True, null=True, verbose_name ='CST No')
+    tinno = models.CharField(max_length = 25, blank=True, null=True, verbose_name ='Tin No.')
     status = models.CharField(max_length = 10, choices = STATUS_SUPFLAG, default='a')
     created = models.DateTimeField(auto_now_add=True, blank=True),
     updated = models.DateTimeField(auto_now_add=True, blank=True),
