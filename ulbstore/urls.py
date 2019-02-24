@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+admin.site.site_header = "Karjat Municipal Council"
+admin.site.site_title = "Karjat Municipal Council"
+admin.site.index_title = "Welcome to Karjat Municipal Council"
+admin.site.site_url = ''
+
 urlpatterns = [
     path('admin/', admin.site.urls),
 ]
